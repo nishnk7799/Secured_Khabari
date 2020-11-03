@@ -1,0 +1,17 @@
+bson==0.5.10
+Flask==1.1.2
+Flask-Login==0.5.0
+Flask-Session==0.3.2
+Flask-Sessions==0.1.5
+Flask-SocketIO==4.3.1
+Jinja2==2.10.1
+numpy==1.16.4
+opencv-python==4.3.0.36
+Pillow==7.1.2
+Pillow-PIL==0.1.dev0
+pymongo==3.10.0
+torch==1.6.0+cpu
+torchvision==0.7.0+cpu
+Werkzeug==0.15.4
+matplotlib==3.3.2
+dnspython==1.16.0
