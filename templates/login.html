@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secured ख़बरी</title>
+    <link rel = "icon" href ="{{url_for('static',filename='img/index.png')}}" type = "image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" >
+    <link rel="stylesheet" href="{{url_for('static',filename='css/navstyle.css')}}" >
+        <style>
+    body{
+        font-family: "Times New Roman";
+        font-size: 1em;
+        padding: 0px;
+        background:url("{{url_for('static',filename='css/background.jpg')}}");
+	    background-size:cover;
+        }
+	nav{
+    background: linear-gradient(rgb(49, 48, 48),#271299) ;
+    height: 80px;
+    width: 100%;
+     }
+	.loginBox
+	{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	width:350px;
+	height:450px;
+	padding:80px 40px;
+	box-sizing: border-box;
+	background:rgba(0,0,0,0.5) ;
+	border-radius: 15px;
+    }
+    label.logo{
+    color:white;
+    font-size: 30px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 4px;
+    
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <label class="logo">Securd<em>ख़बरी</em></label>
+        <ul>
+            <li><a href="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Serevices</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+    </nav>
+    <!-- <img src="{{url_for('static',filename='image/a2.jpg')}}" alt="image"> -->
+<h3>{{ message }}</h3>
+<div class="loginBox">
+		
+    <img src="{{url_for('static',filename='image/user.png')}}" class="user">
+    <h2>Log In Here</h2>
+    <form method="post" action="/login">
+        <p>Username</p>
+        <input type="text" name="username" placeholder="username">
+        <p>Password</p>
+        <input type="password" name="password" placeholder="enter password">
+        <input type="submit" name = "" value="sign In">
+    </form>
+    <input type="submit" onclick="location.href='/signup'" value="sign up">
+</div>
+</body>
+</html>

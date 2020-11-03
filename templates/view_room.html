@@ -1,0 +1,496 @@
+<html>
+    <head>
+        <title>Secured ख़बरी</title>
+    <link rel = "icon" href ="{{url_for('static',filename='img/index.png')}}" type = "image/x-icon">
+    </head>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.min.js">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+
+        body{
+            font-family: 'Acme',sans-serif;
+            background:url("{{url_for('static',filename='css/fern.jpg')}}");
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+         .card{
+              background-color: rgba(0, 0, 0, 0.5);
+              color: white;
+              overflow: auto;
+          }
+	
+        .container1{
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            grid-template-rows: 80px 320px 100px 140px 43px;
+            grid-gap: 3px;
+        }
+
+        .yo{
+          /*  background-color: rgb(72, 125, 194);*/
+        }
+
+        .header{
+
+             grid-column: 2/5;            
+             grid-row:1/4; 
+        }
+        .logout_{
+
+          grid-row: 1/2;
+          //background:rgba(190,189,184,0.4);
+
+          }
+        .footer{
+            grid-column: 5/-1;
+            grid-row:3/5;
+        }
+
+        .ct{
+             grid-column: 5/-1;
+             grid-row: 2/3;
+             box-sizing: border-box;
+             background:rgba(190,189,184,0.4);
+             color: black;
+             overflow: auto;
+        }
+
+        .menu{
+            grid-row: 2/3;
+        }
+        .dd{
+            grid-row:3/-1 ;
+        }
+        .ed{
+            grid-column:5/-1;
+            grid-row:1/2;
+            }
+         .txta{
+                 grid-row:4/5;
+                 grid-column: 2/5;
+              }
+          #edit_btn{
+		position:absolute;
+		bottom: 40px;
+		right:10px;
+           }
+           /* //////////////////////////////////////////////////////////////////////////////////////////// */
+	.custom-scrollbar {
+  height: 500px;
+  overflow-y: scroll;
+  background : #F5F6F9;
+  width :635px;
+}
+ /* To style the document scrollbar` */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background : #FF5A93;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background : rgba(255,255,255,0.5);
+  border-radius: 10px;
+  box-shadow:  0 0 6px rgba(0, 0, 0, 0.5);
+}
+ /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+ .custom-scrollbar2 {
+  height: 320px;
+  overflow-y: scroll;
+  background : #F5F6F9;
+  /* width :635px; */
+}
+ /* To style the document scrollbar` */
+.custom-scrollbar2::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar2::-webkit-scrollbar-track {
+  background : #FF5A93;
+  border-radius: 10px;
+}
+.custom-scrollbar2::-webkit-scrollbar-thumb {
+  background : rgba(255,255,255,0.5);
+  border-radius: 10px;
+  box-shadow:  0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+      .cb {
+	position:absolute;
+	top:0%;
+	left:17%;
+	transform: translate(10%, 0%);
+	width: 635px;
+	height:500px;
+	padding:80px 40px;
+	box-sizing: border-box;
+	background: linear-gradient(75deg, rgba(255, 255, 255, 0.178) 50%, rgba(166, 95, 204, 0.603) 50% ,rgba(236, 136, 145, 0.603));
+    box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.5);
+    margin: 1px;
+    background-attachment: fixed;
+        color: black;
+        overflow-y: auto;
+        border-radius: 8px;
+        }
+
+           .icb_btn{
+            position: absolute;
+            right: 5px;
+            margin-top: 5px;
+          }
+
+          #snd{
+            align: right;
+          }
+          .base{
+                grid-row:5/6;
+                grid-column: 1/-1;
+                background-image: linear-gradient(to right,#f1f1f1,purple );
+                margin-top:2px;
+                margin-bottom:0;
+                 color: white;
+               }
+         .chmsg{
+            background:#f3ca9c;
+              display:inline-block;
+              width:max-content;
+              border-radius: 5px;
+              padding: 2px;
+              margin-top: 4px;
+              margin-bottom: 4px;
+              /* color: white; */
+             }
+             #canvas{
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 5px;
+                width: max-content;
+             }
+             .doodle {
+            position: fixed;
+            z-index: -5;
+            }
+            #messages{
+                background-attachment: fixed;
+                background-image: url("aa.jpg");
+            }
+        </style>
+     <script>
+var messageBody = document.querySelector('#messageBody');
+messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+    </script>
+    <body >
+	<div class="container1">
+        <css-doodle grid="50" class="doodle">
+            :doodle {
+                @grid: 10 / 100vmax;
+            }
+            background: @pick(#29B6F6, #FDD835, #5E35B1, #FFCCBC, #E8EAF6, #B2DFDB, #1B5E20, #2979FF);
+            opacity: @r(.9);
+            clip-path: polygon(
+                @rand(50%) 0, 50% @rand(70%), 0 @rand(100%)
+            );
+
+            animation: test infinite @r(100s, 150s) linear;
+
+            @keyframes test {
+                0% {
+                    transform: translate3d(0, 0, 0);
+                }
+                50% {
+                    transform: translate3d(@r(-500%, 1000%), @r(-500%, 1000%), 0);
+                }
+                100% {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        </css-doodle>
+            <div class="header yo" >
+                    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top" style="position:absolute; top:0%; left:17%; transform: translate(10%, 0%); width: 635px; height:60px; justify-content:center;   font-size: 30px;">
+                         <label style="color: white;">Welcome to chat room: {{ room.name }}</label>
+                        </nav>
+
+			<div class="cb scroll custom-scrollbar" id='messageBody' >
+				<button type="button" id="load_older_messages_btn" class="btn btn-primary">Load Older Messages</button>
+                <div id="messages" style="display: flex; flex-wrap: nowrap;  flex-flow: column nowrap;">
+<!-- ########################################################################################################################################################## -->
+    {% for message in messages %}
+        {% if "data:image" in message.text %}
+            <div class="chmsg" ><b>{{ message.sender }}&nbsp;[{{ message.created_at }}]:&nbsp;</b> <img src="{{ message.text }}" height="200px" width="320px"></div>
+
+		{% else %}
+            <div class="chmsg" ><b>{{ message.sender }}&nbsp;[{{ message.created_at }}]:&nbsp;</b> {{ message.text }}</div>
+
+        {% endif %}
+    {% endfor %}
+<!-- ########################################################################################################################################################## -->
+				</div>
+			</div>
+			</div>
+             <div class="ed yo" style="display:flex; flex-wrap: nowrap;   display: flex; background: linear-gradient(135deg,#163a5f, #c5ecbe); border-bottom: black 5px solid; border-radius: 5px;">
+                                <div  style="  margin: 7px; text-align: center; line-height: 75px; font-size: 5px;">
+				<form action="/savenc" target="_blank">                   <!--ENC-->
+					<button type="submit" class="btn btn-success ">Encryption</button>
+				</form></div>
+                                <div style="  margin:7px; text-align: center; line-height: 75px; font-size: 10px;">
+				<form action="/savdec" target="_blank">
+					<button type="submit" class="btn btn-success ">Decryption</button>
+				</form></div>
+                                <div style="  margin: 7px; text-align: center; line-height: 75px; font-size: 10px;">
+                <form action="/tnst" target="_blank">
+					<button type="submit" class="btn btn-danger ">NST</button>
+				</form></div>
+
+                 <div style="  margin: 7px; text-align: center; line-height: 75px; font-size: 10px;">
+                <form action="/deepenc" target="_blank">
+					<button type="submit" class="btn btn-success ">Deep Encrypt</button>
+				</form></div>
+
+                 <div style="  margin: 7px; text-align: center; line-height: 75px; font-size: 10px;">
+                <form action="/deepdec" target="_blank">
+					<button type="submit" class="btn btn-success ">Deep Decrypt</button>
+				</form></div>
+
+			</div>
+            <div class="menu yo">
+				<div class="card" style="width: 18rem; margin-top: 10px; ">                <!--Members-->
+					<div class="card-body">
+						<h4 class="card-title">My rooms</h4>
+						<ul s>
+							{% if current_user.is_authenticated %}
+                            <ul>
+                            {% for room in rooms %}
+                            <li><a href="/rooms/{{ room._id.room_id }}" id="lnk">{{ room.room_name }}</a></li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+                  <div class="logout_">
+                    <div style="  margin: 10px; text-align: center; line-height: 75px; font-size: 10px;">
+                          <img src="{{url_for('static',filename='logout-512.png')}}" height="70px" width="70px">
+                            <button type="submit" onclick="location.href='/logout';" style="font-size:30px;border:0px;color:white;"class="btn" >Logout</button>
+                     </div>
+                  </div>
+            <div class=" custom-scrollbar2 ct yo card"  style="background: linear-gradient(15deg,#ffa36c, #00bcd4); border-bottom: black 5px solid; border-radius: 5px; padding: 5px;">
+
+                 <!--Uplaod image-->
+
+                    <h4>brodcast image</h4>
+					<div id="Canvas" class="ibc_image" style="color: grey;">
+						<img src="{{url_for('static',filename='temp.jpg')}}" alt="Nothing to display" width="456px" height="210px">
+                    </div>
+                    <form action="/save" target="_blank">
+
+						<button type="submit"   class="icb_btn btn btn-success">Upload/Remove</button>
+					</form>
+
+
+			</div>
+            <div class="footer yo">
+				<div class="card" style="width: 100%; height: 100%; background: linear-gradient(135deg,#2d4059, #f0e3ff); margin-top: 10px; color: black; font-size: large; border: rgb(0, 0, 0) 1px solid;">            <!--Members-->
+					<div class="card-body">
+						<h5 class="card-title">Members</h5>
+							<ul>
+								{% for member in room_members %}
+								<li>{{ member._id.username }}</li>
+								{% endfor %}
+							</ul>
+						<button type="submit"   id="edit_btn" class="icbtn btn btn-primary" >Edit-Room</button>
+					</div>
+				</div>
+			</div>
+            <div class="txta yo">														<!--text area-->
+				<form id="message_input_form" >
+					<input type="text" id="message_input"  class="form-control" placeholder="Enter your message here">
+                                         <br/>
+					<button type="submit" id="snd"  class="btn btn-success">Send</button>
+					<br/>
+						<input id="inp" type='file' class="btn btn-success">
+					<br/>
+
+				</form>
+			</div>
+         <div class="">
+
+          <div>
+
+        </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+<script>
+
+
+function readFile() {
+
+  if (this.files && this.files[0]) {
+
+    var FR= new FileReader();
+
+    FR.addEventListener("load", function(e) {
+                socket.emit('send_message', {
+                    username: "{{ username }}",
+                    room: "{{ room._id }}",
+                    message: e.target.result
+                })
+    });
+
+    FR.readAsDataURL( this.files[0] );
+  }
+  document.getElementById("inp").value = "";
+}
+
+function createImageMessageDOM(data) {
+	var d = document.createElement("div");
+    d.className="chmsg";
+	var img = document.createElement("img");
+    	img.src = data;
+    	img.style.width = '200px';
+	img.style.height= '200px';
+	d.appendChild(img);
+	return d;
+}
+
+function appendImageMessage(data) {
+    var messageContainer = document.getElementById('messages');
+    messageContainer.appendChild(createImageMessageDOM(data))
+}
+
+document.getElementById("inp").addEventListener("change", readFile);
+
+
+    const socket = io.connect("http://127.0.0.1:5000");
+
+    socket.on('connect', function () {
+        socket.emit('join_room', {
+            username: "{{ username }}",
+            room: "{{ room._id }}"
+        });
+
+        let message_input = document.getElementById('message_input');
+        document.getElementById('message_input_form').onsubmit = function (e) {
+            e.preventDefault();
+            let message = message_input.value.trim();
+            if (message.length) {
+                socket.emit('send_message', {
+                    username: "{{ username }}",
+                    room: "{{ room._id }}",
+                    message: message
+                })
+            }
+            message_input.value = '';
+            message_input.focus();
+        }
+    });
+
+
+
+
+    let page = 0;
+
+    document.getElementById("load_older_messages_btn").onclick = (e) => {
+        page += 1;
+        fetch("/rooms/{{ room._id }}/messages?page=" + page, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            response.json().then(messages => {
+                messages.reverse().forEach(message => prepend_message(message.text, message.sender, message.created_at));
+            })
+        })
+    };
+
+    function prepend_message(message, username, created_at) {
+    	const messages_div = document.getElementById('messages');
+        const newNode = document.createElement('div');
+        newNode.className="chmsg";
+// #########################################################################################################################################################
+        if(message.substring(0,11)=="data:image/"){
+        messages_div.insertBefore(createImageMessageDOM(data), messages_div.firstChild);
+        }
+        else{
+        newNode.innerHTML = `<b>${username}&nbsp;[${created_at}]:&nbsp;</b> ${message}`;
+// #########################################################################################################################################################
+        messages_div.insertBefore(newNode, messages_div.firstChild);
+        }
+    }
+
+    window.onbeforeunload = function () {
+        socket.emit('leave_room', {
+            username: "{{ username }}",
+            room: "{{ room._id }}"
+        })
+    };
+
+    socket.on('receive_message', function (data) {
+        console.log(data);
+        const newNode = document.createElement('div');
+        newNode.className="chmsg";
+// #########################################################################################################################################################
+        if(data.message.substring(0,11)=="data:image/"){
+        appendImageMessage(data.message);
+        }
+        else{
+        newNode.innerHTML = `<b>${data.username}&nbsp;[${data.created_at}]:&nbsp;</b> ${data.message}`;
+        }
+// #########################################################################################################################################################
+        document.getElementById('messages').appendChild(newNode);
+    });
+
+
+    socket.on('join_room_announcement', function (data) {
+        console.log(data);
+        if (data.username !== "{{ username }}") {
+            const newNode = document.createElement('div');
+            newNode.innerHTML = `<b>${data.username}</b> has joined the room`;
+            document.getElementById('messages').appendChild(newNode);
+        }
+    });
+
+    socket.on('leave_room_announcement', function (data) {
+        console.log(data);
+        const newNode = document.createElement('div');
+        newNode.innerHTML = `<b>${data.username}</b> has left the room`;
+        document.getElementById('messages').appendChild(newNode);
+    });
+
+
+    (function () {
+        document.getElementById("edit_btn").addEventListener('click', makeRequest);
+        function makeRequest() {
+            var httpRequest = new XMLHttpRequest();
+            if (!httpRequest) {
+                alert(' Cannot create an XMLHTTP instance');
+                return false;
+            }
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+                        window.open('/rooms/{{ room._id }}/edit');
+                    } else {
+                        alert('There was a problem with the request.');
+                    }
+                }
+            };
+            httpRequest.open('GET', '/rooms/{{ room._id }}/edit');
+            httpRequest.send();
+
+        }
+    })();
+
+//document.body.style.zoom="90%"
+</script>
+<script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+</html>

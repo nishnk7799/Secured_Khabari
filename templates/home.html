@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--
+Tinker CSS Template
+https://templatemo.com/tm-506-tinker
+-->
+        <title>Secured ख़बरी</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel = "icon" href ="{{url_for('static',filename='img/index.png')}}" type = "image/x-icon">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+        <link rel="apple-touch-icon" href="{{url_for('static',filename='apple-touch-icon.png')}}">
+
+<!-- "{{url_for('static',filename='css/style.css')}}"  -->
+
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap-theme.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/fontAwesome.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/hero-slider.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/owl-carousel.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/templatemo-style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/lightbox.css')}}">
+
+        <script src="{{url_for('static',filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+
+        <style>
+
+        /* Three columns side by side */
+.column {
+float: left;
+width: 25%;
+margin-bottom: 16px;
+padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+.column {
+ width: 100%;
+ display: block;
+}
+}
+
+/* Add some shadows to create a card effect */
+.card {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+content: "";
+clear: both;
+display: table;
+}
+
+.title {
+color: grey;
+}
+
+.button {
+border: none;
+outline: 0;
+display: inline-block;
+padding: 8px;
+color: white;
+background-color: #000;
+text-align: center;
+cursor: pointer;
+width: 100%;
+}
+
+.button:hover {
+background-color: #555;
+}
+.loginBox
+	{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	width:350px;
+	height:450px;
+	padding:80px 40px;
+	box-sizing: border-box;
+	background:rgba(0,0,0,0.5) ;
+	border-radius: 15px;
+    }
+  label.logo{
+    color:white;
+    font-size: 30px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+.loginBox p
+{
+	padding:0;
+	margin:0;
+	font-weight:bold;
+	color:#fff;
+
+}
+
+
+.loginBox input
+{
+	width:100%;
+	margin-bottom: 20px;
+}
+
+.loginBox input[type="text"], .loginBox input[type="password"],.loginBox input[type="email"]
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline:none;
+	height:40px;
+	color:#fff;
+	font-size: 16px;
+}
+
+
+.loginBox input[type="submit"]
+{
+	border:none;
+	outline:none;
+	height: 40px;
+	color:#fff;
+	font-size:16px;
+	background: rgb(255,38,126);
+	cursor:pointer;
+	border-radius:20px;
+}
+
+
+.loginBox input[type="submit"]:hover
+{
+	background: #efed40;
+	color: #262626;
+}
+
+
+.loginBox a
+{
+	color: #fff;
+	font-size:14px;
+	font-weight:bold;
+}
+
+
+::placeholder
+{
+	color:rgba(255,255,255,0.5);
+}
+
+
+.user
+{
+	width:100px;
+	height:100px;
+	overflow:hidden;
+	position:absolute;
+	top:calc(-100px/2);
+	left:calc(50% - 50px);
+	border-radius:50%;
+}
+        </style>
+
+
+    </head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top">Secured<em>ख़बरी</em></a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-top">Home</a></li>
+                        <li><a href="#" class="scroll-link" data-id="about">About Us</a></li>
+                        <li><a href="#" class="scroll-link" data-id="portfolio">Portfolio</a></li>
+                        <li><a href="#" class="scroll-link" data-id="blog">sign-in</a></li>
+                        <li><a href="#" class="scroll-link" data-id="contact-us">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+
+
+    <div class="parallax-content baner-content" id="home" style="background-image:url(/static/img/banner_bg.jpg)">
+        <div class="container">
+            <div class="text-content">
+                <h2><em>Secured</em> <span>ख़बरी</span></h2>
+                <p>Chat that no one knows. Creat with ease and used the cutting-edge technologies. Creat room according to your needs and add the person to chat for free. Safest environment to communicate. Thank you.</p>
+                <div class="primary-white-button">
+                    <a href="#" class="scroll-link" data-id="about">Let's Start</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="about" class="page-section" style="background-image:url(/static/img/about-bg.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="{{url_for('static',filename='img/service_icon_01.png')}}" alt="">
+                        </div>
+                        <h4>Secured Chat</h4>
+                        <div class="line-dec"></div>
+                        <p>No notification for hackers.</p>
+                        <div class="primary-blue-button">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="{{url_for('static',filename='img/service_icon_02.png')}}" alt="">
+                        </div>
+                        <h4>Lovely Web Design</h4>
+                        <div class="line-dec"></div>
+                        <p>Simple and lovely design to use.</p>
+                        <div class="primary-blue-button">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="{{url_for('static',filename='img/service_icon_03.png')}}" alt="">
+                        </div>
+                        <h4>24/7 Quick Support</h4>
+                        <div class="line-dec"></div>
+                        <p>Feel free to talk to us on our Facebook page if you have any kind of question or suggestion.</p>
+                        <div class="primary-blue-button">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="{{url_for('static',filename='img/service_icon_04.png')}}" alt="">
+                        </div>
+                        <h4>One-Click Setup</h4>
+                        <div class="line-dec"></div>
+                        <p>Just signup and use, no dependencies are needed to install on oyour system.</p>
+                        <div class="primary-blue-button">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Our Gallery</h4>
+                            <div class="line-dec"></div>
+                            <p>Some pictures of the NST that can be used to provide safe transffer. Services provided in the main chat app.</p>
+                            <div class="filter-categories">
+                                <ul class="project-filter">
+                                    <li class="filter" data-filter="all"><span>Show All</span></li>
+                                    <li class="filter" data-filter="nature"><span>NST</span></li>
+                                    <li class="filter" data-filter="animation"><span>Deep Stag</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="projects-holder-3">
+                            <div class="projects-holder">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 project-item mix nature">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="{{url_for('static',filename='img/portfolio_big_item_01.jpg')}}" data-lightbox="image-1"><img src="{{url_for('static',filename='img/portfolio_big_item_01.jpg')}}"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix animation">
+                                      <div class="thumb">
+                                        <div class="image">
+                                                <a href="{{url_for('static',filename='img/portfolio_big_item_02.jpg')}}" data-lightbox="image-1"><img src="{{url_for('static',filename='img/portfolio_big_item_02.jpg')}}"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix branding">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="{{url_for('static',filename='img/portfolio_big_item_03.jpg')}}" data-lightbox="image-1"><img src="{{url_for('static',filename='img/portfolio_big_item_03.jpg')}}"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix graphic nature">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="{{url_for('static',filename='img/portfolio_big_item_04.jpg')}}" data-lightbox="image-1"><img src="{{url_for('static',filename='img/portfolio_big_item_04.jpg')}}"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix branding">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="{{url_for('static',filename='img/portfolio_big_item_05.jpg')}}" data-lightbox="image-1"><img src="{{url_for('static',filename='img/portfolio_big_item_05.jpg')}}"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix graphic animation">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="{{url_for('static',filename='img/portfolio_big_item_06.jpg')}}" data-lightbox="image-1"><img src="{{url_for('static',filename='img/portfolio_big_item_06.jpg')}}"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="owl-testimonials" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Quisque ullamcorper odio a nisl lacinia dictum. Vestibulum malesuada ipsum in turpis finibus, ut sagittis erat scelerisque. Curabitur non risus fringilla libero accumsan molestie et quis justo. ”</p>
+                                <h4>George Rich</h4>
+                                <span>Marketing Head</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Suspendisse magna mauris, convallis vel finibus eget, lobortis dictum neque. Nam tincidunt metus nec eros dignissim consectetur. ”</p>
+                                <h4>John Henry</h4>
+                                <span>Art Director</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Aenean semper aliquam est ut maximus. Fusce id diam eget orci lobortis ultricies at ac velit. Curabitur laoreet massa et fringilla sagittis. ”</p>
+                                <h4>Danny Cute</h4>
+                                <span>Founder</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Maecenas eu odio pharetra, elementum lorem eget, efficitur erat. Duis eget justo non nisi iaculis vestibulum. Aliquam erat volutpat. ”</p>
+                                <h4>Richard Beal</h4>
+                                <span>Senior Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tabs-content" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="wrapper">
+                    <div class="col-md-6">
+                        <div class="section-heading">
+                          <div class="loginBox">
+
+                              <img src="{{url_for('static',filename='img/user.png')}}" class="user">
+                                 <h2>Log In Here</h2>
+                                <form method="post" action="/login">
+                                    <p>Username</p>
+                                    <input type="text" name="username" placeholder="username">
+                                    <p>Password</p>
+                                    <input type="password" name="password" placeholder="enter password">
+                                    <input type="submit" name = "" value="sign In">
+                                </form>
+                                <input type="submit" onclick="location.href='/signup'" value="sign up">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Contact Us</h4>
+                        <div class="line-dec"></div>
+                        <p>Contact us anytime. We are open and accepting all the grevience and suggestions.</p>
+                        <div class="pop-button">
+                            <h4>Send us a message</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="pop">
+                        <span>✖</span>
+                        <form id="contact" action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                                  </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
+                                  </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                                  </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <button type="submit" id="form-submit" class="btn">Send Message</button>
+                                  </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+ <div class="column">
+   <div class="card">
+     <img src="{{url_for('static',filename='img/img.jpg')}}" alt="Aditya" style="width:100%">
+     <div class="container">
+       <h2>Aditya Arun</h2>
+       <p class="title">Developer &amp; Founder</p>
+       <p>..</p>
+       <p>Gmail</p>
+     </div>
+   </div>
+ </div>
+
+ <div class="column">
+   <div class="card">
+     <img src="{{url_for('static',filename='img/img.jpg')}}" alt="Aditya" style="width:100%">
+     <div class="container">
+       <h2>Aditya Parashar</h2>
+       <p class="title">Developer</p>
+       <p>..</p>
+       <p>Gmail</p>
+     </div>
+   </div>
+ </div>
+
+ <div class="column">
+   <div class="card">
+     <img src="{{url_for('static',filename='img/img.jpg')}}" alt="Nishnk" style="width:100%">
+     <div class="container">
+       <h2>Nishnk Vishi</h2>
+       <p class="title">Developer</p>
+       <p>..</p>
+       <p>Gmail</p>
+      </div>
+   </div>
+ </div>
+
+ <div class="column">
+   <div class="card">
+     <img src="{{url_for('static',filename='img/img.jpg')}}" alt="Shivansh" style="width:100%">
+     <div class="container">
+       <h2>Shivansh Gupta</h2>
+       <p class="title">Developer</p>
+       <p>..</p>
+       <p>Gmail</p>
+      </div>
+   </div>
+ </div>
+</div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="logo">
+                        <a class="logo-ft scroll-top" href="#">Secured<em>ख़बरी</em></a>
+                        <p>Copyright &copy; 2020 Your Company
+                       <br>Design: By Team</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="location">
+                        <h4>Location</h4>
+                        <ul>
+                            <li>Dharampur, <br>Dehradun 248001</li>
+                            <li>Sahastradhara, <br>Dehradun 248002</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <div class="contact-info">
+                        <h4>More Info</h4>
+                        <ul>
+                            <li><em>Phone</em>: Indian Number</li>
+                            <li><em>Email</em>: Team@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <div class="connect-us">
+                        <h4>Get Social with us</h4>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="{{url_for('static',filename='js/vendor/bootstrap.min.js')}}"></script>
+
+    <script src="{{url_for('static',filename='js/plugins.js')}}"></script>
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+</body>
+</html>

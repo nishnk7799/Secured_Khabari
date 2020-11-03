@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secured ख़बरी</title>
+    <link rel = "icon" href ="{{url_for('static',filename='img/index.png')}}" type = "image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: 'Acme',sans-serif;
+            background:url("{{url_for('static',filename='css/a4.jpg')}}");
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        #h{
+             position: absolute;
+             top: 30px;
+             left: 45%;
+             transform: translate(-30%,0);
+             color: white;
+            font-size: 25px;     
+            text-shadow:4px 4px 5px rgba(0,0,0,0.5);     
+         }
+         .lb{
+    position:absolute;
+	top:18%;
+	left:50%;
+	transform: translate(-45%, 5%);
+	width:350px;
+	height:375px;
+	padding: 50px;
+    padding-left: 30px;
+	box-sizing: border-box;
+	background:rgba(0,0,0,0.5) ;
+	border-radius: 15px;
+    overflow: hidden;
+         }
+               #lnk{
+                   color: white;
+               }
+
+               .btn{
+                   margin: 5px;
+               }
+
+    </style>
+</head>
+<body>
+    <div  id="h">
+    <h1 class="display-3">My Chat App</h1>
+      </div>
+    <div class="lb" >
+<h3>Hi {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Guest{% endif %}!</h3>
+
+{% if current_user.is_authenticated %}
+    <h3>My rooms</h3>
+    <ul>
+        {% for room in rooms %}
+            <li><a href="/rooms/{{ room._id.room_id }}" id="lnk">{{ room.room_name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<button type="submit" onclick="location.href='/create-room/';" class="btn btn-success">Creat-Room</button>
+<br>
+<button type="submit" onclick="location.href='/logout';" class="btn  btn-success">Logout</button>
+<br>
+</div>
+
+</body>
+</html>

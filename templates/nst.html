@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secured ख़बरी</title>
+    <link rel = "icon" href ="{{url_for('static',filename='img/index.png')}}" type = "image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <style>
+     body{
+            font-family: 'Acme',sans-serif;
+            background:url("{{url_for('static',filename='css/47.jpg')}}");
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        .jumbotron {
+            height: 100px;
+            background: linear-gradient(rgb(136, 156, 199),rgba(255,255,255,0));
+          }
+
+         .lb{
+    position:absolute;
+	top:60%;
+	left:50%;
+	transform: translate(-50%, -60%);
+	width:350px;
+	height:650px;
+	padding: 50px;
+    padding-left: 30px;
+	box-sizing: border-box;
+	background:rgba(0,0,0,0.5) ;
+	border-radius: 15px;
+    overflow: hidden;
+         }
+
+         .btn{
+             margin: 5px;
+         }
+         .card-title{
+             color: white;
+         }
+         .btn-success{
+             width: 200px;
+         }
+
+         #h{
+             position: absolute;
+             top: 20px;
+             left: 50%;
+             transform: translate(-18%,0);
+             color: white;
+             text-shadow:4px 4px 5px rgba(0,0,0,0.5);
+         }
+
+     </style>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container" id="h">
+          <h1 class="display-3">Upload Here</h1>
+          <p class="lead" style="transform: translate(20px,0);">click choose file to select the image</p>
+        </div>
+      </div>
+    <div class="container">
+<!-- <h3 class="alert alert-info">This page is to add or remove images from the chat rooms</h3> -->
+    <div class="lb">
+      <h3 class="card-title ">upload files</h3>
+      <form id="image_input_form" action="/nst" enctype="multipart/form-data" method="POST">
+          <p style="color:white">Content Image</p>
+        <input type="file" name="content" multiple class="btn btn-success" placeholder="Cover Img">
+        <br>
+          <p style="color:white">Style Image</p>
+        <input type="file" name="style" multiple class="btn btn-success" placeholder="Secret Img">
+        <br>
+        <button type="submit"  class="btn btn-primary btn-sm">Send</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>

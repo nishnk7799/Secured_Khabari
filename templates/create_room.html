@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secured ख़बरी</title>
+    <link rel = "icon" href ="{{url_for('static',filename='img/index.png')}}" type = "image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+         #h{
+              position: absolute;
+              top: 25px;
+              left: 50%;
+              transform: translate(-54%,0%);
+              color: white;
+              text-shadow:3px 3px 5px rgba(0, 0, 0, 0.5);
+          }
+          body{
+            font-family: 'Acme',sans-serif;
+            background:url("{{url_for('static',filename='css/fern.jpg')}}");
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        .lb {
+    position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-45%, 15%);
+	width:300px;
+	height:350px;
+	padding: 50px;
+    padding-left: 40px;
+	box-sizing: border-box;
+	background:rgba(0,0,0,0.5) ;
+	border-radius: 15px;
+    overflow: hidden;
+         }
+    
+
+         .lb input[type="text"], .lb input[type="password"],.lb input[type="email"]
+        {
+	    border: none;
+	    border-bottom: 1px solid #fff;
+	    background: transparent;
+	    outline:none;
+	    height:20px;
+        color:#fff;
+        margin: 10px;
+        font-size: 16px;
+    
+        }
+        .btn-success{
+               margin: 10px;
+               transform: translate(50px,30px);
+        }
+        .ttt{
+            transform: translate(10px,0);
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="h">
+<h1>Create Room</h1>
+<h3>{{ message }}</h3>
+<div class="lb">
+<form method="post">
+    <label class="ttt">Room Name:</label>
+    <input type="text" name="room_name">
+    <br>
+    <label class="ttt">Members:</label>
+    <input type="text" name="members">
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+</div>
+</body>
+</html>
